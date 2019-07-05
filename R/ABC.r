@@ -53,84 +53,12 @@ cov_matJR<-function(t,sigma,a,b)
 # ABC for the JR-NMM:
 # Estimation of theta=(sig,mu,C) based on simulated reference data
 #----------------------------------------------------------
-
 #'@rdname ABC_Parallel_JRNMM_sigmuC
 #'@title ABC_Parallel_JRNMM_sigmuC
-#'@description Run 1 iteration from the sdbmsABC after sampling tilde.theta=(sigma,mu,C)
-#'@return d, tilde.theta
-#'@export
-ABC_Parallel_JRNMM_sigmuC<-function(in_refData,in_specRef,in_spx,in_T,in_h,in_M,in_w,A,B,a,b,v0,r,vmax){
-
-  #sample a theta value from the prior
-  sig<-runif(1,1300,2700)
-  mu<-runif(1,160,280)
-  C<-runif(1,129,141)
-
-  #setting
-  M<-in_M
-  w<-in_w
-  T<-in_T
-  h<-in_h
-  grid<-seq(from=0,to=T,by=h)
-
-  #hyperparameters
-  Lsupport<-1000
-  span_val<-5*T
-
-  #simulated reference data
-  refY<-in_refData
-
-  #spectral density derived from the reference data
-  spec_refY<-in_specRef
-  spx<-in_spx
-  idx_P<-2:length(spx)
-
-  #conditionally on theta, simulate a new artificial dataset Y
-  dm<-exp_matJR(h,a,b)
-  cm<-t(chol(cov_matJR(h,c(0,0,0,0.01,sig,1),a,b)))
-  startv<-c(0.08,18,15,-0.5,0,0)
-  sol<-Splitting_JRNMM_gen_Cpp(h,startv,grid,dm,cm,mu,C,A,B,a,b,v0,r,vmax)
-  Y<-sol[2,]-sol[3,] #output process
-  spec_Y<-spectrum(Y,log="no",span=span_val,plot=FALSE)$spec
-
-  dist_vec<-rep(0,M)
-  for (j in 1:M){
-    #Integrate absolute error (IAE): invariant spectral density
-    spec_refYj<-spec_refY[j,]
-    idy_P<-abs(spec_refYj-spec_Y)
-    IAE1<-((spx[idx_P]-spx[idx_P-1]) %*% (idy_P[idx_P]+idy_P[idx_P-1]) / 2)
-
-    #Integrate absolute error (IAE): invariant density
-    #Find the common support
-    startSupp<-min(min(refY[j,]),min(Y))
-    endSupp<-max(max(refY[j,]),max(Y))
-    Dens_refY<-density(refY[j,],kernel="gaussian",from=startSupp,to=endSupp,n=Lsupport,adjust=1)
-    invDens_refY<-Dens_refY$y
-    dsx<-Dens_refY$x
-    idx_D<-2:length(dsx)
-    invDens_Y<-density(Y,kernel="gaussian",from=startSupp,to=endSupp,n=Lsupport,adjust=1)$y
-    idy_D<-abs(invDens_refY-invDens_Y)
-    IAE2<-((dsx[idx_D]-dsx[idx_D-1]) %*% (idy_D[idx_D]+idy_D[idx_D-1]) / 2)
-
-    #combined distance using the weight
-    dist_vec[j]<-IAE1+w*IAE2
-  }
-
-  #median of the calculated distances
-  Dist<-median(dist_vec)
-
-  #return the distance together with the sampled theta value
-  ret<-array(0,dim=c(1,4,1))
-  ret[,,1]<-c(Dist,sig,mu,C)
-  return(ret)
-}
-
-#'@rdname ABC_Parallel_JRNMM2_sigmuC
-#'@title ABC_Parallel_JRNMM2_sigmuC
 #'@description Run 1 iteration from the sdbmsABC after sampling tilde.theta=(sigma,mu,C). Possibly faster code
 #'@return d, tilde.theta
 #'@export
-ABC_Parallel_JRNMM2_sigmuC<-function(refY,spec_refY,spx,T,h,M,w,startv,A,B,a,b,v0,r,vmax){
+ABC_Parallel_JRNMM_sigmuC<-function(refY,spec_refY,spx,T,h,M,w,startv,A,B,a,b,v0,r,vmax){
   #sample a theta value from the prior
   sig<-runif(1,1300,2700)
   mu<-runif(1,160,280)
