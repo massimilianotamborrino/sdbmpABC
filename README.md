@@ -7,7 +7,8 @@ Since exact simulation for the models of Section 4 is available, here we provide
 
 These are the steps needed to reproduce the inference of θ = (σ,μ,C) of the JR-NMM based on simulated reference data:
 
-1. Install the provided package "sdbmpABC".
+1. Install the provided package "sdbmpABC", e.g. via devtools::install_github("massimilianotamborrino/sdbmpABC")
+   after having called the package devtools.
 2. Specify the ABC setting (cut, N, M, w, T, h) in the file "run_ABC_JRNMM_sigmuC.R".
    The pre-defined setting  
    cut=10^3 (corresponding to the kept posterior samples)
