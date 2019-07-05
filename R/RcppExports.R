@@ -40,4 +40,3 @@ Splitting_JRNMM_Cpp_ <- function(h_i, startv, grid_i, dm_i, cm_i, mu_i, C_i, A, 
 Splitting_JRNMM_output_Cpp_ <- function(h_i, startv, grid_i, dm_i, cm_i, mu_i, C_i, A, B, a, b, v0, r, vmax) {
     .Call('_sdbmsABC_Splitting_JRNMM_output_Cpp_', PACKAGE = 'sdbmsABC', h_i, startv, grid_i, dm_i, cm_i, mu_i, C_i, A, B, a, b, v0, r, vmax)
 }
-
