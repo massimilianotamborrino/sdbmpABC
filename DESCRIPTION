@@ -16,3 +16,4 @@ Encoding: UTF-8
 LazyData: true
 LinkingTo: Rcpp,RcppEigen,BH
 RoxygenNote: 6.1.1.9000
+
