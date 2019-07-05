@@ -23,4 +23,3 @@ These are the steps needed to reproduce the inference of θ = (σ,μ,C) of the J
    as txt files (sig, mu, C) in the working folder.
 6. Run the file "visualisation_of_results.R".
 7. The figure visalising the ABC marginal posterior densities of θ = (σ,μ,C) (Top panels) and the pairwise scatterplots of the kept posterior samples (Lower panels) of the stochastic JR-NMM (25) obtained from Algorithm 1 (ii) is now stored. The horizontal red lines and the vertical black lines represent the uniform priors and the true parameter values, respectively. Note that the Top panels correspond to Figure (8) of the manuscript.
-
