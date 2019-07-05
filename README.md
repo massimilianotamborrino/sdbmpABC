@@ -14,8 +14,8 @@ The numerical method preserves the measure properties of the model, guaranteeing
 # How to install the package
 The simplest way is to do it via devtools, using devtools::install_github("massimilianotamborrino/sdbmpABC")
 
-# How to reproduce Figure 8 (with pairwise scatterplots of the kept ABC posterior samples in addition)
-These are the steps needed to reproduce the inference of θ = (σ,μ,C) of the JR-NMM based on simulated reference data:
+# How does the package work
+These are the steps needed to reproduce the inference of θ = (σ,μ,C) of the JR-NMM based on simulated reference data, i.e., to  reproduce Figure 8 (with pairwise scatterplots of the kept ABC posterior samples in addition).
 
 1. Install the provided package "sdbmpABC" (see above).
 2. Specify the ABC setting (cut, N, M, w, T, h) in the file "run_ABC_JRNMM_sigmuC.R".
