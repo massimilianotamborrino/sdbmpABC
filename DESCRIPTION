@@ -1,0 +1,18 @@
+Package: sdbmsABC
+Title: Spectral density-based and measure preserving ABC for the stochastic Jansen and Rit neural mass model (JR-NMM). The package contains the numerical Strang splitting scheme for the synthetic data simulation via a structure-preserving method
+Version: 0.1.0
+Authors: Irene Tubikanec, Massimiliano Tamborrino
+Maintainer: Massimiliano Tamborrino <massimiliano.tamborrino@jku.at>
+Description: Sample code to generate the marginal posterior densities for the inference of theta=(sigma,mu,C) from
+    the 6-dimensional JR-NMM (a Hamiltonian type SDE). The proposed algorithm is based on the combination of the 
+    structure-preserving numerical Strang splitting scheme and the estimated invariant densities and invariant spectral
+    densities as proposed summary statistics. The chosen distance is a weighted sum of the areas between these curves and
+    the corresponding curves estimated from the observed dataset. We refer to the paper on
+    arXiv:1903.01138v1 for more information
+Depends: R (>= 3.4.4), Rcpp,RcppEigen,BH,doParallel,doRNG,foreach,pkgbuild,doSNOW,
+Imports: Rcpp (>= 0.11.6),RcppEigen,BH
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+LinkingTo: Rcpp,RcppEigen,BH
+RoxygenNote: 6.1.1.9000
