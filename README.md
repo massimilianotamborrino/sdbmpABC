@@ -3,12 +3,21 @@ Sample code for the paper by Buckwar, Tamborrino &amp; Tubikanec (2019) "Spectra
 
 The code was written by Irene Tubikanec (firstname dot secondname at jku.at) and then updated by Massimiliano Tamborrino (firstname dot secondname at jku.at).
 
-Since exact simulation for the models of Section 4 is available, here we provide the code for performing the Spectral Density-Based and Measure-Preserving ABC (sdbmpABC) for the Jansen and Rit Neural Mass Model (JR-NMM) (25) of Section 5. In particular, we provide what we denoted Algorithm 1 (ii) in the paper. The proposed acceptance-rejection ABC algorithm is based on two key ingredients: 1) summary statistics based on the estimated invariant density and invariant spectral density; 2) a structure-preserving numerical Strang splitting method. The numerical method preserves the measure properties of the model, guaranteeing a succesfull inference.
+# What can you find in the package
+Since exact simulation for the models of Section 4 is available, here we provide the code for performing the Spectral Density-Based and Measure-Preserving ABC (sdbmpABC) for the Jansen and Rit Neural Mass Model (JR-NMM) (25) of Section 5. In particular, we provide what we denoted Algorithm 1 (ii) in the paper to reproduce Figure 8. 
 
+The proposed acceptance-rejection ABC algorithm is based on two key ingredients: 
+1) summary statistics based on the estimated invariant density and invariant spectral density; 
+2) a structure-preserving numerical Strang splitting method. 
+The numerical method preserves the measure properties of the model, guaranteeing the succesfull inference.
+
+# How to install the package
+The simplest way is to do it via devtools, using devtools::install_github("massimilianotamborrino/sdbmpABC")
+
+# How to reproduce Figure 8 (with pairwise scatterplots of the kept ABC posterior samples in addition)
 These are the steps needed to reproduce the inference of θ = (σ,μ,C) of the JR-NMM based on simulated reference data:
 
-1. Install the provided package "sdbmpABC", e.g. via devtools::install_github("massimilianotamborrino/sdbmpABC")
-   after having called the package devtools.
+1. Install the provided package "sdbmpABC" (see above).
 2. Specify the ABC setting (cut, N, M, w, T, h) in the file "run_ABC_JRNMM_sigmuC.R".
    The pre-defined setting  
    cut=10^3 (corresponding to the kept posterior samples)
