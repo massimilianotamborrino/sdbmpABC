@@ -3,7 +3,7 @@ Sample code for the paper by Buckwar, Tamborrino &amp; Tubikanec (2019) "Spectra
 
 The code was written by Irene Tubikanec (firstname dot secondname at jku.at) and then updated by Massimiliano Tamborrino (firstname dot secondname at jku.at).
 
-Since exact simulation for the models of Section 4 is available, here we provide the code for performing the Spectral Density-Based and Measure-Preserving ABC (sdbmsABC) for the Jensen and Rit Neural Mass Model (JR-NMM) (25) of Section 5.
+Since exact simulation for the models of Section 4 is available, here we provide the code for performing the Spectral Density-Based and Measure-Preserving ABC (sdbmsABC) for the Jansen and Rit Neural Mass Model (JR-NMM) (25) of Section 5.
 
 These are the steps needed to reproduce the inference of theta=(sigma,mu,C) of the JR-NMM based on simulated reference data:
 
@@ -22,5 +22,5 @@ These are the steps needed to reproduce the inference of theta=(sigma,mu,C) of t
 5. Check if the kept (marginal) posterior samples are successfully stored 
    as txt files (sig, mu, C) in the folder "Marginal_posteriors".
 6. Run the file "visualisation_of_results.R".
-7. The figura visalising the results is now stored. 
+7. The figure visalising the results is now stored. 
 
