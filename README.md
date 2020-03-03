@@ -1,5 +1,5 @@
 # sdbmpABC
-Sample code for the paper by Buckwar, Tamborrino &amp; Tubikanec (2019) "Spectral Density-Based and Measure-Preserving ABC for partially observed diffusion processes An illustration on Hamiltonian SDEs", Preprint at https://arxiv.org/abs/1903.01138
+Sample code for the paper by Buckwar, Tamborrino &amp; Tubikanec "Spectral Density-Based and Measure-Preserving ABC for partially observed diffusion processes An illustration on Hamiltonian SDEs", Stat. Comput. 30, 627-648, 2020, https://link.springer.com/content/pdf/10.1007/s11222-019-09909-6.pdf
 
 The code was written by Irene Tubikanec (firstname dot secondname at jku.at) and then updated by Massimiliano Tamborrino (firstname dot secondname at jku.at).
 
